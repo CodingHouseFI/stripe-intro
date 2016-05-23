@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <!-- <script src="https://js.stripe.com/v2/"></script> -->
+
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <p>Key:  <%= STRIPEKEY %> </p>
+
+    <form action="/api/payment" method="POST">
+      <script
+        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key=<%= STRIPEKEY %>
+        data-amount="999"
+        data-name="Demo Site"
+        data-description="Widget"
+        data-image="http://kindersay.com/files/images/bird.png"
+        data-locale="auto">
+      </script>
+    </form>
+    
+
+  </body>
+</html>
