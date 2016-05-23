@@ -1,17 +1,13 @@
 'use strict';
 
-var app = angular.module('stripeApp', ['stripe']);
+var app = angular.module('stripeApp', ['stripe.checkout']);
 
-app.config(function() {
-  Stripe.setPublishableKey('pk_test_HJNWPlajghxupBJagvAGHsAJ');
-});
 
 app.controller('mainCtrl', function($scope) {
 
-  $scope.saveCustomer = function(status, response) {
-    console.log('status:', status);
-    console.log('response:', response);
+  $scope.doCheckout = function(token) {
+    console.log('token:', token);
   };
 
-});
+})
 

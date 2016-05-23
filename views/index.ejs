@@ -6,7 +6,7 @@
 
     <script src="https://js.stripe.com/v2/"></script>
     <script src="/bower_components/angular/angular.min.js"></script>
-    <script src="/bower_components/stripe-angular/stripe-angular.js"></script>
+    <script src="/bower_components/angular-stripe-checkout/angular-stripe-checkout.js"></script>
 <!--     
     <script>
       Stripe.setPublishableKey( <%= STRIPEKEY %> );
@@ -19,28 +19,12 @@
     <p>Welcome to <%= title %></p>
     <p>Key:  <%= STRIPEKEY %> </p>
 
-    <form stripe:form="saveCustomer">
-      <fieldset>
-        <input placeholder="CC Number" type="text" size="20" data-stripe="number"/>
-        <input placeholder="CVC" type="text" size="4" data-stripe="cvc"/>
-        <input placeholder="Month" type="text" size="2" data-stripe="exp-month"/>
-        <input placeholder="Year" type="text" size="4" data-stripe="exp-year"/>
-      </fieldset>
-      <button type="submit">Save</button>
-    </form>
-
-<!--     <form action="/api/payment" method="POST">
-      <script
-        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key=<%= STRIPEKEY %>
-        data-amount="999"
-        data-name="Demo Site"
-        data-description="Widget"
-        data-image="http://kindersay.com/files/images/bird.png"
-        data-locale="auto">
-      </script>
-    </form>
-     -->
-
+    <button stripe-checkout="doCheckout"
+            data-key="pk_test_HJNWPlajghxupBJagvAGHsAJ"
+            data-name="Bubba's Best Birds"
+            data-description="Penguin"
+            data-amount="500000">
+      Buy Penguin
+    </button>
   </body>
 </html>

@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "angular": "^1.5.5",
-    "stripe-angular": "^1.0.2"
+    "stripe-angular": "^1.0.2",
+    "angular-stripe-checkout": "^4.0.1"
   }
 }
