@@ -17,14 +17,41 @@
   <body ng-app='stripeApp' ng-controller='mainCtrl'>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
-    <p>Key:  <%= STRIPEKEY %> </p>
 
-    <button stripe-checkout="doCheckout"
+    <<!-- button stripe-checkout="doCheckout"
             data-key="pk_test_HJNWPlajghxupBJagvAGHsAJ"
             data-name="Bubba's Best Birds"
             data-description="Penguin"
             data-amount="500000">
       Buy Penguin
     </button>
+ -->
+    <table>
+      <thead>
+        <tr>
+          <th>Variety</th>
+          <th>Price</th>
+          <th>Buy Now!</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat='bird in birds track by $index'>
+          <td>{{bird.variety}}</td>
+          <td>{{bird.value | currency}}</td>
+          <td>
+            <button ng-click='selectBird(bird._id)'
+                    stripe-checkout="doCheckout"
+                    data-key="pk_test_HJNWPlajghxupBJagvAGHsAJ"
+                    data-name="Bubba's Best Birds"
+                    data-description="{{bird.variety}}"
+                    data-amount="{{bird.value * 100}}">
+              Buy
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
   </body>
 </html>
