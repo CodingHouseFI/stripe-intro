@@ -7,6 +7,14 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+const MONGOURL = process.env.MONGOURL;
+
+var mongoose = require('mongoose');
+
+mongoose.connect(MONGOURL, err => {
+  console.log(err || `MongoDB connected to ${MONGOURL}`)
+});
+
 var app = express();
 
 // view engine setup
